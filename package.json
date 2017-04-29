@@ -1,0 +1,36 @@
+{
+  "name": "vocabuilder",
+  "version": "0.0.1",
+  "description": "an app to help students manage English vocabularies while improving their learning experience at the same time",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShawnShiFeng/hrsf76-mvp.git"
+  },
+  "keywords": [
+    "mvp"
+  ],
+  "author": "Shawn Feng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShawnShiFeng/hrsf76-mvp/issues"
+  },
+  "homepage": "https://github.com/ShawnShiFeng/hrsf76-mvp#readme",
+  "dependencies": {
+    "@google-cloud/speech": "^0.9.1",
+    "angular": "^1.6.4",
+    "axios": "^0.16.1",
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.2",
+    "jquery": "^3.2.1",
+    "mongoose": "^4.9.6",
+    "mysql": "^2.13.0",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "body-parser": "^1.17.1"
+  }
+}
