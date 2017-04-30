@@ -1,14 +1,24 @@
-const mysql = require('mysql');
+const mongoose = require('mongoose');
+const Promise = require('bluebird');
+const MongoBD = require('mongodb');
 
-const dbConnection = mysql.createConnection({
-    user : 'root',
-    password : '',
-    database : 'vocab'
+Promise.promisifyAll(require('mongodb'));
+mongoose.connect('mongodb://localhost/randomizer');
+
+var db = mongoose.connection;
+db.on('error', function() { console.error(error)});
+db.once('open', function() {console.log('connection is on')});
+
+var resultSchema = mongoose.Schema({
+    resultNumber: Number,
+    result: {photo: String, text: String},
+    choices: [{photo: String, text: String}]
 });
 
-dbConnection.connect(function(err) {
-    if (err) console.error(err);
-    else console.log(`connection to database 'vocab' is on`);
-});
+var Result = mongoose.model('Result', resultSchema);
 
-module.exports = dbConnection;
+module.exports = Result;
+
+
+
+

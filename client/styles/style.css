@@ -31,3 +31,12 @@ body {
 .button-center {
     text-align: center;
 }
+
+.animation-slow-motion {
+    -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
+    transition: width 2s, height 2s, background-color 2s, transform 2s;
+}
+
+/*.animation-slow-motion:hover {
+    transform: rotate(360deg);
+}*/
