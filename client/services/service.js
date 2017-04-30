@@ -1,6 +1,7 @@
 angular.module('randomizer')
 .service('req', function() {
 
+
     this.sendPostRequest = function(payload, suffixUrl, callback) {
         var url = '/click/' + suffixUrl;
         axios.post(url, payload)
@@ -11,7 +12,7 @@ angular.module('randomizer')
         .catch( err => {
             console.log(err);
         })
-    },
+    };
 
     this.formulatePictureUrl = function(jsonObj, callback) {
         var index = Math.floor((Math.random() * jsonObj.data.rsp.photos['0'].photo.length));
@@ -23,5 +24,7 @@ angular.module('randomizer')
 
         var finalUrl = 'http://' + farmId + '.staticflickr.com/' + serverId + '/' + photoId + secret +size;
         callback(finalUrl);
-    }
+    };
+
+
 });

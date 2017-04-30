@@ -3,6 +3,7 @@ angular.module('randomizer')
 
     var self = this;
 
+
     this.pickOneOption = () => {
         req.sendPostRequest(this.photos,'randomize', function(data) {
             console.log("data: ", data);
@@ -14,15 +15,27 @@ angular.module('randomizer')
 
     this.onRandomizeButtonClicked = pickedNum => {
         console.log("pickedNum: ", pickedNum);
+        this.finalResultData = self.photos.splice(pickedNum, 1);
+        console.log("finalResultData: ", this.finalResultData);
+        self.photos = [];
         $scope.$apply(function(){
-            self.photos = self.photos.slice(pickedNum, pickedNum + 1);
-            console.log(self.photos);
+            self.showResult = true;
         })
     }
+
+    this.startOver = () => {
+        this.showResult = false;
+        this.photos = [];
+    }
+
+
+
 })
 .directive('controlBar', function() {
     return {
         scope : {
+            finalResultData: '=',
+            showResult: '=',
             photos: '=',
             startRecording : '<'
         },

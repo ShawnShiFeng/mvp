@@ -1,10 +1,19 @@
 <div id="app-container" class="container">
     <div class="row navigate-bar">
     </div>
-    <div class="main-view">
+    <div class="main-view" ng-show="ctrl.showResult">
+            <br><br>
+            <h3 class="text-center">Randomly selected: </h3>
+            <img class="img-circle center-block" ng-src="{{ctrl.finalResultData['0'].photo}}"/>
+            <h1 class="text-center"> {{ctrl.finalResultData[0].text}}</h1>
+    </div>
+    <div class="main-view" ng-show="!ctrl.showResult">
         <choice-view class="row" photos="ctrl.photos"></choice-view>
     </div>
     <div class="main-control">
-        <control-bar class="row" start-recording="ctrl.startRecording" photos="ctrl.photos"></control-bar>
+        <control-bar class="row" start-recording="ctrl.startRecording" photos="ctrl.photos" show-result="ctrl.showResult" final-result-data="ctrl.finalResultData"></control-bar>
     </div>
 </div>
+
+<!--{{ctrl.finalResultData['0'].photo}} -->
+<!--http://images.iimg.in/c/539851c0e4eed40374a16b26-4-501-0-1402491328/google/cute-dog-dogs-picture.img?crop=1-->

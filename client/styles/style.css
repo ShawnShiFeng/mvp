@@ -2,7 +2,6 @@ body {
     background-color: #F0EBCD;
 }
 
-
 .navigate-bar {
     background-image: url("../../src/photo/random1.png");
     background-repeat: no-repeat;
@@ -14,8 +13,21 @@ body {
 
 .main-view {
     height: 350px;
+    position: relative;
+    z-index: 1;
 }
 
 .main-control {
     height: 100px;
+}
+
+.random-button {
+    height:60px;
+    width: 100%;
+    left: 50%;
+    position: absolute;
+}
+
+.button-center {
+    text-align: center;
 }

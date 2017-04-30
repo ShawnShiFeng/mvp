@@ -3,6 +3,8 @@ angular.module('randomizer')
 
     const self = this;
     this.photos = [];
+    this.showResult = false;
+    this.finalResultData = [{photo:'http://images.iimg.in/c/539851c0e4eed40374a16b26-4-501-0-1402491328/google/cute-dog-dogs-picture.img?crop=1', text : 'hello world'}];
 
     const recognition = new webkitSpeechRecognition();
     // start recording
@@ -12,7 +14,7 @@ angular.module('randomizer')
         setTimeout(function() {
             recognition.stop();
             console.log("stop recording");
-        }, 4000);
+        }, 3000);
     }
 
     // on 'end' recording, send post request to server,
@@ -35,6 +37,7 @@ angular.module('randomizer')
 .directive('app', function() {
     return {
         scope : {
+        finalResultData: '<'
         },
         restrict: 'E',
         controllerAs : 'ctrl',

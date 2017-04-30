@@ -23,11 +23,10 @@ module.exports = {
                 });
             })
         },
+
         pickRandomNumber : (req, res) => {
             console.log("length: ", req.body.length);
             var randomNumber = Math.floor(Math.random() * req.body.length) ;
             console.log(randomNumber);
             res.send(JSON.stringify(randomNumber));
-        }
-    }
-}
+        }}}
