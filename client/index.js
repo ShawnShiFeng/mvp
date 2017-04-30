@@ -1,1 +1,1 @@
-angular.module('vocab', []);
+angular.module('randomizer', []);

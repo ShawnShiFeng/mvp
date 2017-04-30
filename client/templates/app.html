@@ -1,5 +1,10 @@
-<div id="app-container">
-    <div>
-        <h1>app container</h1>
+<div id="app-container" class="container">
+    <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-repeat="data in ctrl.photos">
+            <img class="img-circle center-block" ng-src="{{data.photo}}" />
+            <p class="text-center">{{data.text}}</p>
+        </div>
     </div>
+
+    <control-bar class="row" start-recording="ctrl.startRecording"></control-bar>
 </div>

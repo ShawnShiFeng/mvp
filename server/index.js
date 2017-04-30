@@ -8,7 +8,7 @@ app.use(express.static(__dirname + '/..'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 
-app.use('/translate', router);
+app.use('/speech', router);
 
 
 app.listen(app.get('port'), function (err) {
