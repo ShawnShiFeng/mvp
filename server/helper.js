@@ -6,20 +6,14 @@ module.exports = {
     sendGetRequest : function(finalUrl, callback) {
         request(finalUrl, (error, response, body) => {
             console.log("body",(body));
-            if (error) {
-              return;
-             }
+            if (error) {return;}
              callback(body);
           });
     },
 
     parseXMLtoJSON : function(input, callback) {
         parseXML(input, function(err, result) {
-            // console.log("result:", result);
             callback(result);
         })
     }
-
-
-
 }

@@ -1,8 +1,9 @@
 angular.module('randomizer')
 .service('req', function() {
 
-    this.sendPostRequest = function(payload, callback) {
-        axios.post('/speech/findPic', {text : payload})
+    this.sendPostRequest = function(payload, suffixUrl, callback) {
+        var url = '/click/' + suffixUrl;
+        axios.post(url, payload)
         .then(response => {
             callback(response);
             console.log("post request sent!");
@@ -13,9 +14,7 @@ angular.module('randomizer')
     },
 
     this.formulatePictureUrl = function(jsonObj, callback) {
-        console.log(jsonObj);
         var index = Math.floor((Math.random() * jsonObj.data.rsp.photos['0'].photo.length));
-        console.log(index);
         var farmId = 'farm' + jsonObj.data.rsp.photos['0'].photo[index]['$'].farm;
         var serverId = jsonObj.data.rsp.photos['0'].photo[index]['$'].server;
         var photoId =  jsonObj.data.rsp.photos['0'].photo[index]['$'].id;

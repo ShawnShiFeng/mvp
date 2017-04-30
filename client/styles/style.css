@@ -1,0 +1,21 @@
+body {
+    background-color: #F0EBCD;
+}
+
+
+.navigate-bar {
+    background-image: url("../../src/photo/random1.png");
+    background-repeat: no-repeat;
+    height: 160px;
+    background-size: contain;
+    background-position: center;
+    background-color: #F0EBCD;
+}
+
+.main-view {
+    height: 350px;
+}
+
+.main-control {
+    height: 100px;
+}
