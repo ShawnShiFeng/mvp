@@ -1,7 +1,7 @@
 <div id="app-container" class="container">
     <div class="row navigate-bar">
         <settings class="row" show-result="ctrl.showResult" show-choice="ctrl.showChoice" show-history="ctrl.showHistory"
-        choice-view-state-before-history-view="ctrl.choiceViewStatebeforeHistoryView"></settings>
+        choice-view-state-before-history-view="ctrl.choiceViewStatebeforeHistoryView" all-history="ctrl.allHistory" get-history-data="ctrl.getHistoryData"></settings>
     </div>
     <div class="main-view" ng-show="ctrl.showChoice">
         <choice-view class="row" photos="ctrl.photos"></choice-view>
@@ -16,7 +16,8 @@
     </div>
     <div class="main-view" ng-show="ctrl.showHistory">
         <history-view class="row" show-result="ctrl.showResult" show-choice="ctrl.showChoice" show-history="ctrl.showHistory"
-            choice-view-state-before-history-view="ctrl.choiceViewStatebeforeHistoryView"></history-view>
+            choice-view-state-before-history-view="ctrl.choiceViewStatebeforeHistoryView"
+            all-history="ctrl.allHistory"></history-view>
     </div>
     <div class="main-control">
         <control-bar class="row" start-recording="ctrl.startRecording" photos="ctrl.photos"

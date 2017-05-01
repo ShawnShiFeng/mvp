@@ -20,7 +20,7 @@ angular.module('randomizer')
             contentType: 'application/json',
             success : function (data) {
                 callback(data);
-                console.log("get request sent!");
+                console.log("get request for history sent!");
             },
             error : function (err) {
                 console.error("error occured at get request")
@@ -39,6 +39,4 @@ angular.module('randomizer')
         var finalUrl = 'http://' + farmId + '.staticflickr.com/' + serverId + '/' + photoId + secret +size;
         callback(finalUrl);
     };
-
-
 });

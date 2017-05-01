@@ -1,13 +1,16 @@
 angular.module('randomizer')
 .controller('settingsController', function(req) {
-    this.onHistoryClicked = () => {
-        // send a get request to the server and get
-        // latest history back from the database
-        req.sendGetRequest((data) => {
 
-            console.log("data:" ,data);
+    var self = this;
+
+    this.updateHistoryList = data => {
+        this.allHistory = data;
+    };
+
+    this.onHistoryClicked = () => {
+        req.sendGetRequest((data) => {
+            self.updateHistoryList(data);
         })
-        this.choiceViewStatebeforeHistoryView = this.showChoice;
         this.showResult = false;
         this.showChoice = false;
         this.showHistory = true;
@@ -16,6 +19,8 @@ angular.module('randomizer')
 .directive('settings', function() {
     return {
         scope: {
+
+            getHistoryData: '=',
             showResult: '=',
             showChoice: '=',
             showHistory: '=',

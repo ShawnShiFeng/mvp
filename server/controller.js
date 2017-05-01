@@ -9,7 +9,7 @@ const flickerKey = '7ac9dfad1ef03dc18d21e941be34ddaf';
 
 module.exports = {
     get : {
-        getHistory : (req, res) => {
+        getAllHistory : (req, res) => {
             result.find({})
             .exec(function(err, results) {
                 if(err) {
@@ -21,7 +21,12 @@ module.exports = {
                             i--;
                         }
                     }
-                    res.send(results);
+                    if (results.length <= 3){
+                        res.send(results);
+                    } else {
+                        results.splice(3,results.length);
+                        res.send(results);
+                    }
                 }
             })
         }
@@ -44,24 +49,13 @@ module.exports = {
         },
 
         pickRandomNumber : (req, res) => {
-            console.log("show: ", req.body);
             var randomNumber = Math.floor(Math.random() * req.body.length) ;
             var queryObj = {
                 resultNumber: randomNumber,
                 result: req.body[randomNumber],
                 choices: req.body
             }
-            var newResultRepo = new Result(queryObj);
+            var newResultRepo = new result(queryObj);
             newResultRepo.save();
             res.send(JSON.stringify(randomNumber));
         }}};
-
-
-
-
-            //    for (var i = 0; i < results.length; i++) {
-            //             if (results[i].choices.length === 0) {
-            //                 results.slice(i,1);
-            //                 i--;
-            //             }
-            //         }

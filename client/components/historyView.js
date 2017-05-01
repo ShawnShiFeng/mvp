@@ -1,5 +1,6 @@
 angular.module('randomizer')
 .controller('historyViewController', function() {
+
     this.onCloseHistoryButtonClicked = () => {
         this.showHistory = false;
         this.showResult = false;
@@ -9,6 +10,7 @@ angular.module('randomizer')
 .directive('historyView', function() {
     return {
         scope : {
+            allHistory: '<',
             showHistory: '=',
             showResult: '=',
             showChoice: '=',

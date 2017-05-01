@@ -3,12 +3,23 @@ angular.module('randomizer')
 
     const self = this;
     this.photos = [];
+    this.allHistory = [];
+    // [{result : {
+    //     text: 'shawn'
+    // }},
+    // {result : {
+    //     text: 'shi'
+    // }},
+    // {result : {
+    //     text: 'feng'
+    // }}]
     this.showResult = false;
     this.showChoice = true;
     this.showHistory = false;
     this.choiceViewStatebeforeHistoryView = true;
     this.finalResultData = [{photo:'http://images.iimg.in/c/539851c0e4eed40374a16b26-4-501-0-1402491328/google/cute-dog-dogs-picture.img?crop=1'
                             , text : 'hello world'}];
+
 
     const recognition = new webkitSpeechRecognition();
     // start recording
@@ -40,7 +51,7 @@ angular.module('randomizer')
 .directive('app', function() {
     return {
         scope : {
-        finalResultData: '<'
+            finalResultData: '<'
         },
         restrict: 'E',
         controllerAs : 'ctrl',
