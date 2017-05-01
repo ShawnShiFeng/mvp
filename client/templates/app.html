@@ -1,20 +1,26 @@
 <div id="app-container" class="container">
     <div class="row navigate-bar">
-        <button class="btn btn-primary">settings</button>
+        <settings class="row" show-result="ctrl.showResult" show-choice="ctrl.showChoice" show-history="ctrl.showHistory"
+        choice-view-state-before-history-view="ctrl.choiceViewStatebeforeHistoryView"></settings>
     </div>
-    <div class="main-view " ng-show="ctrl.showResult">
+    <div class="main-view" ng-show="ctrl.showChoice">
+        <choice-view class="row" photos="ctrl.photos"></choice-view>
+    </div>
+    <div class="main-view" ng-show="ctrl.showResult">
         <br><br>
         <div class="animation-slow-motion">
             <h3 class="text-center">Randomly selected: </h3>
             <img class="img-circle center-block" ng-src="{{ctrl.finalResultData['0'].photo}}"/>
             <h1 class="text-center"> {{ctrl.finalResultData[0].text}}</h1>
         </div>
-
     </div>
-    <div class="main-view" ng-show="!ctrl.showResult">
-        <choice-view class="row" photos="ctrl.photos"></choice-view>
+    <div class="main-view" ng-show="ctrl.showHistory">
+        <history-view class="row" show-result="ctrl.showResult" show-choice="ctrl.showChoice" show-history="ctrl.showHistory"
+            choice-view-state-before-history-view="ctrl.choiceViewStatebeforeHistoryView"></history-view>
     </div>
     <div class="main-control">
-        <control-bar class="row" start-recording="ctrl.startRecording" photos="ctrl.photos" show-result="ctrl.showResult" final-result-data="ctrl.finalResultData"></control-bar>
+        <control-bar class="row" start-recording="ctrl.startRecording" photos="ctrl.photos"
+            show-result="ctrl.showResult" show-choice="ctrl.showChoice" show-history="ctrl.showHistory"
+            final-result-data="ctrl.finalResultData"></control-bar>
     </div>
 </div>

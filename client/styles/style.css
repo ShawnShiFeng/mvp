@@ -28,6 +28,21 @@ body {
     position: absolute;
 }
 
+.dropdown-position {
+    float: right;
+    padding:10px;
+}
+
+.dropdown-menu {
+  min-width: 30px;
+}
+
+.dropdown-appearence {
+    width: 90px;
+    float: right;
+    margin-right: 2px;
+}
+
 .button-center {
     text-align: center;
 }

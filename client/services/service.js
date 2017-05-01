@@ -1,8 +1,7 @@
 angular.module('randomizer')
 .service('req', function() {
 
-
-    this.sendPostRequest = function(payload, suffixUrl, callback) {
+    this.sendPostRequest = (payload, suffixUrl, callback) => {
         var url = '/click/' + suffixUrl;
         axios.post(url, payload)
         .then(response => {
@@ -14,7 +13,22 @@ angular.module('randomizer')
         })
     };
 
-    this.formulatePictureUrl = function(jsonObj, callback) {
+    this.sendGetRequest = callback => {
+        $.ajax({
+            url: '/click/getHistory',
+            method: 'GET',
+            contentType: 'application/json',
+            success : function (data) {
+                callback(data);
+                console.log("get request sent!");
+            },
+            error : function (err) {
+                console.error("error occured at get request")
+            }
+        })
+    };
+
+    this.formulatePictureUrl = (jsonObj, callback) => {
         var index = Math.floor((Math.random() * jsonObj.data.rsp.photos['0'].photo.length));
         var farmId = 'farm' + jsonObj.data.rsp.photos['0'].photo[index]['$'].farm;
         var serverId = jsonObj.data.rsp.photos['0'].photo[index]['$'].server;

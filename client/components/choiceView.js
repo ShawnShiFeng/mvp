@@ -1,7 +1,5 @@
 angular.module('randomizer')
 .controller('choiceViewController', function() {
-
-
 })
 .directive('choiceView', function() {
     return {
